@@ -21,9 +21,29 @@ function handel_custom_images()
 add_action('after_setup_theme', 'handel_custom_images');
 
 
-// Total de itens por página
 function handel_loop_shop_per_page()
 {
   return 6;
 }
 add_filter('loop_shop_per_page', 'handel_loop_shop_per_page');
+
+function handel_product_list($products)
+{ ?>
+  <ul class="produtos-lista">
+    <?php foreach ($products as $product) { ?>
+      <li class="produto-item">
+        <a href="<?= $product['link']; ?>">
+          <div class="produto-info">
+            <img src="<?= $product['img']; ?>" alt="<?= $product['name']; ?>" />
+            <h2><?= $product['name']; ?> - <span><?= $product['price']; ?></span></h2>
+          </div>
+          <div class="produto-item_overlay">
+            <span class="btn-link">Ver Mais</span>
+          </div>
+        </a>
+      </li>
+    <?php } ?>
+  </ul>
+<?php
+}
+?>
