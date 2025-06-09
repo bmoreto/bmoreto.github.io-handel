@@ -8,6 +8,7 @@ Theme name: Handel
 @import url('css/slide.css');
 @import url('css/home.css');
 @import url('css/products.css');
+@import url('css/footer.css');
 
 html{
   font-family: sans-serif;

@@ -30,6 +30,7 @@
   background: #000;
 }
 
+
 .slide-info {
   padding: 0 20px 40px 20px;
   color: #fff;
@@ -47,6 +48,15 @@
   font-size: 1.5rem;
   font-weight: 300;
   margin-bottom: 20px;
+}
+
+@media (max-width: 800px) {
+  .slide-item {
+  grid-template-columns: 1fr;
+  }
+  .slide-info {
+  margin-top:20px ;
+  }
 }
 
 .categorias-home{
