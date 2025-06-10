@@ -1,26 +1,33 @@
-.produtos-lista {
+.products-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 40px;
 }
 
-.produtos-lista h2 {
+@media (max-width: 800px) {
+  .products-list {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+}
+
+.products-list h2 {
   margin-top: 5px;
   font-size: 0.725rem;
   text-transform: uppercase;
   letter-spacing: .1rem;
 }
 
-.produtos-lista a {
+.products-list a {
   display: grid;
 }
 
-.produto-info {
+.product-info {
   grid-area: 1/1;
 }
 
-.produto-item_overlay {
-opacity: 0;
+.product-overlay {
+  opacity: 0;
   grid-area: 1/1;
   background: rgba(255, 255, 255, .5);
   display: flex;
@@ -28,18 +35,58 @@ opacity: 0;
   transition: opacity .3s;
 }
 
-.produto-item a:hover .produto-item_overlay {
+.product-item a:hover .product-overlay {
   opacity: 1;
 }
 
-.produto-item_overlay .btn-link{
-margin: auto;
-width: 100%;
+.product-overlay .btn-link {
+  margin: auto;
+  width: 100%;
+}
+
+
+.breadcrumb {
+  margin: 20px auto;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: .05rem;
+}
+
+.woocommerce-breadcrumb {
+  padding-bottom: 20px !important;
+  border-bottom: 2px solid #000;
+}
+
+
+.products-archive {
+  display: grid;
+  grid-template-columns: 220px 1fr;
 }
 
 @media (max-width: 800px) {
-  .produtos-lista  {
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
+  .products-archive {
+    grid-template-columns: 1fr;
   }
+}
+
+
+.pagination {
+  margin-top: 40px;
+}
+
+.pagination .page-numbers {
+  border-radius: 2px;
+  background: #000;
+  color: #fff;
+  padding: 4px 10px;
+}
+
+.pagination span.page-numbers {
+  background: orangered;
+}
+
+.pagination .next,
+.pagination .prev {
+  background: #fff;
+  color: #000;
 }

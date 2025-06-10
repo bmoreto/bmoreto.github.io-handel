@@ -31,13 +31,12 @@ img {
 .container {
   max-width: 1000px;
   margin: 60px auto;
-  padding:0 20px ;
+  padding: 0 20px;
 }
 
 .hidden {
   display: none;
 }
-
 
 .btn-link {
   padding: 15px;
@@ -56,7 +55,7 @@ img {
   height: 18px;
 }
 
-.subtitulo{
+.subtitulo {
   text-align: center;
   text-transform: uppercase;
   font-size: 2.375rem;
@@ -64,19 +63,19 @@ img {
 }
 
 .subtitulo::before,
-.subtitulo::after{
-content: '';
-display: block;
-width: 100px;
-height: 6px;
-background-color: currentColor;
-transform: skew(-20deg);
+.subtitulo::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 6px;
+  background: currentColor;
+  transform: skew(-20deg);
 }
 
-.subtitulo::before{
-margin: 0 calc(50% + 20px) 0 auto;
+.subtitulo::before {
+  margin: 0 calc(50% + 20px) 0 auto;
 }
 
-.subtitulo::after{
-margin: 0 calc(50% - 120px) 0 auto;
+.subtitulo::after {
+  margin: 5px calc(50% - 120px) 0 auto;
 }

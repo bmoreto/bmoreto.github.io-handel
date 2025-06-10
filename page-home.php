@@ -1,22 +1,6 @@
 <?php
 // Template name: Home
-get_header(); ?>
-
-
-<?php
-function format_products($products, $img_size)
-{
-  $products_final = [];
-  foreach ($products as $product) {
-    $products_final[] = [
-      'name' => $product->get_name(),
-      'price' => $product->get_price_html(),
-      'link' => $product->get_permalink(),
-      'img' => wp_get_attachment_image_src($product->get_image_id(), $img_size)[0],
-    ];
-  }
-  return $products_final;
-}
+get_header();
 
 $products_slide = wc_get_products([
   'limit' => 6,
@@ -46,8 +30,7 @@ $home_id = get_the_ID();
 $categoria_esquerda = get_post_meta($home_id, 'categoria_esquerda', true);
 $categoria_direita = get_post_meta($home_id, 'categoria_direita', true);
 
-function get_product_category_data($category)
-{
+function get_product_category_data($category) {
   $cat = get_term_by('slug', $category, 'product_cat');
   $cat_id = $cat->term_id;
   $img_id = get_term_meta($cat_id, 'thumbnail_id', true);
@@ -59,62 +42,53 @@ function get_product_category_data($category)
   ];
 }
 
-$data['categorias'][$categoria_esquerda] = (get_product_category_data($categoria_esquerda));
-$data['categorias'][$categoria_direita] = (get_product_category_data($categoria_direita));
-
-
+$data['categorias'][$categoria_esquerda] = get_product_category_data($categoria_esquerda);
+$data['categorias'][$categoria_direita] = get_product_category_data($categoria_direita);
 
 ?>
 
-<?php if (have_posts()) {
-  while (have_posts()) {
-    the_post(); ?>
+<?php if(have_posts()) { while (have_posts()) { the_post(); ?>
 
-    <ul class="vantagens">
-      <li>Frete Grátis</li>
-      <li>Troca Fácil</li>
-      <li>Até 12x</li>
-    </ul>
+<ul class="vantagens">
+  <li>Frete Grátis</li>
+  <li>Troca Fácil</li>
+  <li>Até 12x</li>
+</ul>
 
-    <section class="slide-wrapper">
-      <ul class="slide">
-        <?php foreach ($data['slide'] as $product) { ?>
-          <li class="slide-item">
-            <img src="<?= $product['img']; ?>" alt="<?= $product['name']; ?>">
-            <div class="slide-info">
-              <span class="slide-preco"><?= $product['price']; ?></span>
-              <h2 class="slide-nome"><?= $product['name']; ?></h2>
-              <a class="btn-link" href="<?= $product['link']; ?>">Ver Produto</a>
-            </div>
-          </li>
-        <?php } ?>
-      </ul>
-    </section>
+<section class="slide-wrapper">
+  <ul class="slide">
+    <?php foreach($data['slide'] as $product) { ?>
+    <li class="slide-item">
+      <img src="<?= $product['img']; ?>" alt="<?= $product['name']; ?>">
+      <div class="slide-info">
+        <span class="slide-preco"><?= $product['price']; ?></span>
+        <h2 class="slide-nome"><?= $product['name']; ?></h2>
+        <a class="btn-link" href="<?= $product['link']; ?>">Ver Produto</a>
+      </div>
+    </li>
+    <?php } ?>
+  </ul>
+</section>
 
-    <section class="categorias-home">
-      <?php foreach ($data['categorias'] as $categoria) { ?>
-        <a href="<?= $categoria['link'] ?> ">
-          <img src="<?= $categoria['img'] ?>" alt="<?= $categoria['name'] ?>">
-          <span class="btn-link"><?= $categoria['name'] ?></span>
-        </a>
+<section class="container">
+  <h1 class="subtitulo">Lançamentos</h1>
+  <?php handel_product_list($data['lancamentos']); ?>
+</section>
 
+<section class="categorias-home">
+  <?php foreach($data['categorias'] as $categoria) { ?>
+    <a href="<?= $categoria['link'] ?>">
+      <img src="<?= $categoria['img'] ?>" alt="<?= $categoria['name'] ?>">
+      <span class="btn-link"><?= $categoria['name'] ?></span>
+    </a>
+  <?php } ?>
+</section>
 
+<section class="container">
+  <h1 class="subtitulo">Mais Vendidos</h1>
+  <?php handel_product_list($data['vendidos']); ?>
+</section>
 
-      <?php } ?>
-
-    </section>
-
-    <section class="container">
-      <h1 class="subtitulo">Lançamentos</h1>
-      <?php handel_product_list($data['lancamentos']); ?>
-    </section>
-
-    <section class="container">
-      <h1 class="subtitulo">Mais Vendidos</h1>
-      <?php handel_product_list($data['vendidos']); ?>
-    </section>
-
-<?php }
-} ?>
+<?php } } ?>
 
 <?php get_footer(); ?>

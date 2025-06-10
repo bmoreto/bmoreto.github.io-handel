@@ -1,20 +1,10 @@
 /* 
 Theme name: Handel
  */
- 
 
-@import url('css/base.css');
-@import url('css/header.css');
-@import url('css/slide.css');
-@import url('css/home.css');
-@import url('css/products.css');
-@import url('css/footer.css');
-
-html{
-  font-family: sans-serif;
-}
-
-
-
-
-
+@import './css/base.css';
+@import './css/header.css';
+@import './css/slide.css';
+@import './css/home.css';
+@import './css/products.css';
+@import './css/footer.css';
