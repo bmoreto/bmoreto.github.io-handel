@@ -27,8 +27,8 @@
     </div>
 
     <nav class="conta">
-      <a href="/minha-conta" class="minha-conta">Minha Conta</a>
-      <a href="/carrinho" class="carrinho">Carrinho
+      <a href="/my-account" class="minha-conta">Minha Conta</a>
+      <a href="/cart" class="carrinho">Carrinho
         <?php if ($cart_count) { ?>
           <span class="carrinho-count"><?= $cart_count; ?></span>
         <?php } ?>

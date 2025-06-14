@@ -1,0 +1,66 @@
+.woocommerce a {
+  text-decoration: underline;
+}
+
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error {
+  background: #eee;
+  border: none;
+  color: #000;
+  padding: 15px 20px;
+}
+
+.woocommerce-message::before,
+.woocommerce-info::before,
+.woocommerce-error::before {
+  display: none;
+} 
+
+.woocommerce-error {
+  border-left: 4px solid orangered;
+}
+
+.woocommerce-message,
+.woocommerce-info {
+  border-left: 4px solid olivedrab;
+}
+
+.wc-block-components-form input,
+.wc-block-components-form select{
+  font-size: 1.125rem !important;
+  border: 1px solid rgba(0,0,0,.08) !important;
+  background: rgba(0,0,0,.08) !important;
+  padding: 10px 15px !important;
+  border-radius: 4px !important;
+}
+
+.wc-block-components-button{
+  background-color: #000;
+  color: #fff !important;
+  font-weight: 500 !important;
+  text-transform: capitalize !important;
+  min-height: 43px !important;
+}
+
+.woocommerce #coupon_code {
+  min-width: 180px;
+  margin-right: 10px;
+}
+
+.wc-block-components-checkout-place-order-button {
+border: none;
+}
+
+.wc-block-cart__submit-button,
+.wc-block-components-checkout-place-order-button {
+  text-transform: capitalize !important;
+  font-weight: 500 !important;
+  background-color: #0066BB !important;
+}
+
+.wc-block-cart__submit-button:hover,
+.wc-block-components-checkout-place-order-button:hover{
+  background-color: #1188ee !important;
+}
+

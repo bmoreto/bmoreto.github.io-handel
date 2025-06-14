@@ -119,3 +119,7 @@
 .product-detail .quantity {
   display: none !important;
 }
+
+.notificacao{
+  margin: 20px auto;
+}
